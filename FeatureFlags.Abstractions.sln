@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlags.Abstractions", "FeatureFlags.Abstractions\FeatureFlags.Abstractions.csproj", "{C3643D3D-49E2-464A-9800-5CCFF8A535A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeatureFlags.Abstractions.Test", "FeatureFlags.Abstractions.Test\FeatureFlags.Abstractions.Test.csproj", "{B1DDD99C-B728-4894-A056-A22954B568A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C3643D3D-49E2-464A-9800-5CCFF8A535A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3643D3D-49E2-464A-9800-5CCFF8A535A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3643D3D-49E2-464A-9800-5CCFF8A535A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1DDD99C-B728-4894-A056-A22954B568A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1DDD99C-B728-4894-A056-A22954B568A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1DDD99C-B728-4894-A056-A22954B568A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1DDD99C-B728-4894-A056-A22954B568A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
