@@ -9,44 +9,45 @@ namespace FeatureFlags.Abstractions
     {
         public static T Map<T>() where T : new()
         {
-            var togglesFile =
-                XDocument.Load(AppDomain.CurrentDomain.BaseDirectory + "/featureToggles.xml").Element("featureToggles") ??
-                new XElement("featureToggles");
-            var toggles = togglesFile.Elements().ToDictionary(e => e.Name.LocalName);
             var features = new T();
+            var togglesFile = XDocument.Load(AppDomain.CurrentDomain.BaseDirectory + "/featureToggles.xml").Element("featureToggles") ?? new XElement("featureToggles");
+            var toggles = togglesFile.Elements().ToDictionary(x => x.Name.LocalName, ConvertToFeature);
+            var flags = features.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance).Where(p => p.PropertyType == typeof (Feature)).ToList();
 
-            toggles.Keys.ToList()
-                .ForEach(
-                    k =>
-                        features.GetType()
-                            .GetProperty(k, BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase)
-                            .SetValue(features,
-                                new Feature(toggles[k].Attribute("name").Value,
-                                    toggles[k].Attribute("value").Value.Equals("on", StringComparison.OrdinalIgnoreCase))));
-
+            flags.ForEach(f => f.SetValue(features, toggles.ContainsKey(f.Name) ? toggles[f.Name] : new Feature(f.Name, false)));
             return features;
+        }
+
+        private static Feature ConvertToFeature(XElement element)
+        {
+            return new Feature(element.Attribute("name").Value, element.Attribute("value").Value.Equals("on", StringComparison.OrdinalIgnoreCase));
         }
     }
 
     public class Feature
     {
-        private readonly string _name;
-        private readonly bool _state;
+        private readonly string name;
+        private readonly bool state;
 
         public Feature(string name, bool state)
         {
-            _name = name;
-            _state = state;
+            this.name = name;
+            this.state = state;
         }
 
         public bool IsOn()
         {
-            return _state;
+            return state;
         }
 
         public string Name()
         {
-            return _name;
+            return name;
+        }
+
+        public bool Expired(DateTime dateTime)
+        {
+            throw new NotImplementedException();
         }
     }
 }

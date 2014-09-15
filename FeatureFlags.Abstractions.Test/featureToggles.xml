@@ -1,4 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <featureToggles>
-  <iceCream name="ice-cream on baklava" value="on" expiresOn="Oct 12th"/>
+  <IceCream name="ice-cream on baklava" value="on"/>
+  <Chai name="chai with baklava" value="On"/>
+  <Walnut name="buts on baklava" value="off"/>
 </featureToggles>
