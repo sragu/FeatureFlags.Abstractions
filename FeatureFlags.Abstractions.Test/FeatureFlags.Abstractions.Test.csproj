@@ -61,6 +61,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="baklavaFeatures.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="featureToggles.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

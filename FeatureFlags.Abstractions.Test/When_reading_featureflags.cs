@@ -11,7 +11,7 @@ namespace FeatureFlags.Abstractions.Test
 
         public When_reading_featureflags()
         {
-            features = FeatureFlags.Map<BaklavaAppFeatures>();
+            features = FeatureFlags.Map<BaklavaAppFeatures>("featureToggles.xml");
         }
 
         [Test]
@@ -52,13 +52,30 @@ namespace FeatureFlags.Abstractions.Test
 
         public When_reading_featureflags_that_not_set_in_config()
         {
-            features = FeatureFlags.Map<BaklavaAppFeatures>();
+            features = FeatureFlags.Map<BaklavaAppFeatures>("featureToggles.xml");
         }
 
         [Test]
         public void should_be_set_to_off()
         {
             features.Pistachio.IsOn().Should().BeFalse("feature flag that is not set in xml is off by default");
+        }
+    }
+
+    [TestFixture]
+    public class When_reading_featureflags_from_another_file
+    {
+        private readonly BaklavaAppFeatures features;
+
+        public When_reading_featureflags_from_another_file()
+        {
+            features = FeatureFlags.Map<BaklavaAppFeatures>("baklavaFeatures.xml");
+        }
+
+        [Test]
+        public void should_be_able_to_initialise_toggles()
+        {
+            features.IceCream.IsOn().Should().BeTrue("feature toggle is on");
         }
     }
 
