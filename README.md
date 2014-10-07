@@ -5,6 +5,15 @@ abstraction over feature flags for applications build with .net
 
 A simple, small code to handle feature flags. No impressive features, but will be dead simple to use.
 
+
+__Install__
+
+````
+PM> Install-Package FeatureFlags.Abstractions
+````
+https://www.nuget.org/packages/FeatureFlags.Abstractions/1.0.0
+
+
 __Configure the toggles (baklavaFeatures.xml)__
 
 ````
@@ -14,7 +23,6 @@ __Configure the toggles (baklavaFeatures.xml)__
 </featureToggles>
 
 ````
-
 __Use the toggles to manage features__
 ````
  var features = FeatureFlags.Map<BaklavaAppFeatures>("baklavaFeatures.xml");
@@ -29,17 +37,6 @@ __Use the toggles to manage features__
     public Feature IceCream { get; internal set; }
  }
 ````
-
-__Install__
-
-Install from nuget: 
-
-````
-PM> Install-Package FeatureFlags.Abstractions
-````
-
-https://www.nuget.org/packages/FeatureFlags.Abstractions/1.0.0
-
 __TODO__:
 
 * add support for feature flag expiration
