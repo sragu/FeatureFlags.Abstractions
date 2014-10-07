@@ -30,7 +30,22 @@ __Use the toggles to manage features__
  }
 ````
 
+__Install__
+
+Install from nuget: 
+
+````
+PM> Install-Package FeatureFlags.Abstractions
+````
+
+https://www.nuget.org/packages/FeatureFlags.Abstractions/1.0.0
+
 __TODO__:
 
 * add support for feature flag expiration
 * add support to derive value from request cookies
+
+
+__NOTES__:
+
+* project naming is inspired by https://github.com/davidwhitney/System.Configuration.Abstractions
