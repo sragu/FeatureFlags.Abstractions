@@ -1,5 +1,4 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NUnit.Framework;
 
 namespace FeatureFlags.Abstractions.Test
@@ -36,12 +35,6 @@ namespace FeatureFlags.Abstractions.Test
         public void should_get_the_feature_flag_name()
         {
             features.IceCream.Name().Should().Be("ice-cream on baklava");
-        }
-
-        [Test, Ignore("To be implemented")]
-        public void should_check_the_expires_date()
-        {
-            features.IceCream.Expired(new DateTime(2014, 10, 13)).Should().Be(true);
         }
     }
 

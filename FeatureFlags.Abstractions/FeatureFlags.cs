@@ -60,10 +60,5 @@ namespace FeatureFlags.Abstractions
         {
             return name;
         }
-
-        public bool Expired(DateTime dateTime)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
