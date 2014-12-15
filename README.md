@@ -11,7 +11,8 @@ __Install__
 ````
 PM> Install-Package FeatureFlags.Abstractions
 ````
-https://www.nuget.org/packages/FeatureFlags.Abstractions/1.0.0
+
+[Nuget Relase 1.0.1](https://www.nuget.org/packages/FeatureFlags.Abstractions/1.0.1)
 
 
 __Configure the toggles (baklavaFeatures.xml)__
@@ -57,4 +58,4 @@ __TODO__:
 
 __NOTES__:
 
-* project naming is inspired by System.Configuration.Abstractions[https://github.com/davidwhitney/System.Configuration.Abstractions]
+* project naming is inspired by [System.Configuration.Abstractions](https://github.com/davidwhitney/System.Configuration.Abstractions)
