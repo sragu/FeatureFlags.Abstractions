@@ -19,7 +19,7 @@ __Configure the toggles (baklavaFeatures.xml)__
 ````
 <?xml version="1.0" encoding="utf-8" ?>
 <featureToggles>
-  <IceCream name="ice-cream on baklava" value="on"/>
+  <IceCream name="ice-cream on baklava" value="on" expires="2014-12-12"/>
 </featureToggles>
 
 ````
@@ -37,12 +37,23 @@ __Use the toggles to manage features__
     public Feature IceCream { get; internal set; }
  }
 ````
+
+Feature toggle expiration acts as a reminder to remove them, or to the extend them conciously. Feature toggle should be dead, long live the feature toggles.
+
+````
+[Test]
+public void feature_is_expired_if_no_date_is_set()
+{
+    features.IceCream.Expired(DateTime.Today).Should().BeFalse("Time to get rid off this toggle");
+}
+````
+
+* Expiration does not affect the value of the feature toggle.
+
 __TODO__:
 
-* add support for feature flag expiration
 * add support to derive value from request cookies
-
 
 __NOTES__:
 
-* project naming is inspired by https://github.com/davidwhitney/System.Configuration.Abstractions
+* project naming is inspired by System.Configuration.Abstractions[https://github.com/davidwhitney/System.Configuration.Abstractions]

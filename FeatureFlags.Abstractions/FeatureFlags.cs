@@ -27,8 +27,10 @@ namespace FeatureFlags.Abstractions
         {
             var featureName = element.Attribute("name").Value;
             var featureValue = element.Attribute("value").Value;
+            var featureExpires = element.Attribute("expires");
 
-            return new Feature(featureName, "on".Equals(featureValue, StringComparison.OrdinalIgnoreCase));
+            var expiresOn = featureExpires != null ? DateTime.Parse(featureExpires.Value) : DateTime.Today;
+            return new Feature(featureName, "on".Equals(featureValue, StringComparison.OrdinalIgnoreCase), expiresOn);
         }
     }
 
@@ -44,11 +46,13 @@ namespace FeatureFlags.Abstractions
     {
         private readonly string name;
         private readonly bool state;
+        private readonly DateTime expiresOn;
 
-        public Feature(string name, bool state)
+        public Feature(string name, bool state, DateTime? expiresOn = null)
         {
             this.name = name;
             this.state = state;
+            this.expiresOn = expiresOn.GetValueOrDefault(DateTime.Today);
         }
 
         public bool IsOn()
@@ -59,6 +63,11 @@ namespace FeatureFlags.Abstractions
         public string Name()
         {
             return name;
+        }
+
+        public bool Expired(DateTime dateTime)
+        {
+            return dateTime.Date.CompareTo(expiresOn.Date) >= 0;
         }
     }
 }
