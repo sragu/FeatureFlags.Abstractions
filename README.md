@@ -42,9 +42,10 @@ Feature toggle expiration acts as a reminder to remove them, or to the extend th
 
 ````
 [Test]
-public void feature_is_expired_if_no_date_is_set()
+public void icecream_feature_is_set()
 {
-    features.IceCream.Expired(DateTime.Today).Should().BeFalse("Time to get rid off this toggle");
+    features.IceCream.Expired(DateTime.Today)
+    	.Should().BeFalse("time to get rid off this toggle, and make the feature default");
 }
 ````
 
