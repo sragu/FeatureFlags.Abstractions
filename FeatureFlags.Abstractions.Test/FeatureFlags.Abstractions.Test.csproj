@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="When_building_feature_toggle_for_unit_tests.cs" />
     <Compile Include="When_feature_flags_expire.cs" />
     <Compile Include="When_reading_featureflags.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

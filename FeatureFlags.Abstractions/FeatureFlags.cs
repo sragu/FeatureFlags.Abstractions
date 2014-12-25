@@ -70,4 +70,17 @@ namespace FeatureFlags.Abstractions
             return dateTime.Date.CompareTo(expiresOn.Date) >= 0;
         }
     }
+
+    public static class FeatureWith
+    {
+        public static Feature StateOn()
+        {
+            return new Feature(string.Empty, true);
+        }
+
+        public static Feature StateOff()
+        {
+            return new Feature(string.Empty, false);
+        }
+    }
 }
