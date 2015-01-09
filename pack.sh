@@ -1,0 +1,1 @@
+NuGet.exe pack FeatureFlags.Abstractions/FeatureFlags.Abstractions.csproj -Prop Configuration=Release
