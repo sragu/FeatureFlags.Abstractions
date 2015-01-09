@@ -50,6 +50,13 @@ public void icecream_feature_is_set()
 }
 ````
 
+Also you can set feature toggle value programmaticaly for testing purposes.
+
+````    
+    var features = new BaklavaAppFeatures {Chai = FeatureWith.StateOn(), IceCream = FeatureWith.StateOff()};
+	
+````
+
 * Expiration does not affect the value of the feature toggle.
 
 __TODO__:
