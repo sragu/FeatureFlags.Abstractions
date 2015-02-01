@@ -12,7 +12,7 @@ __Install__
 PM> Install-Package FeatureFlags.Abstractions
 ````
 
-[Nuget Relase 1.0.1](https://www.nuget.org/packages/FeatureFlags.Abstractions/1.0.1)
+[Nuget Relase Latest](https://www.nuget.org/packages/FeatureFlags.Abstractions)
 
 
 __Configure the toggles (baklavaFeatures.xml)__
